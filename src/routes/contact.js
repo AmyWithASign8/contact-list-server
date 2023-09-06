@@ -40,7 +40,7 @@ contactsRouter.post(
 
 contactsRouter.delete("/delete", async (req, res, next) => {
     try {
-        const { contactId } = req.body;
+        const { contactId } = req.query;
 
         if (!contactId) return next(apiError.badRequest("ID не указан"));
 
