@@ -98,7 +98,9 @@ contactsRouter.post(
 contactsRouter.get("/", async (req, res, next) => {
     try {
 
-        const contacts = await db.Contact.findAll();
+        const contacts = await db.Contact.findAll({
+            order: [["createdAt", "DESC"]],
+        });
 
         return res.json({ contacts });
     } catch (e) {
